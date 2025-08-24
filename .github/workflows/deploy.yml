@@ -4,8 +4,8 @@ on:
   push:
 
 jobs:
-  deploy-draft:
-    if: startsWith(github.ref_name, 'release') == false
+  deploy:
+    # if: startsWith(github.ref_name, 'release') == false
     runs-on: ubuntu-latest
     environment:
       name: ${{ github.ref_name }}
