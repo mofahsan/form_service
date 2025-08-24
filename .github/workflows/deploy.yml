@@ -5,7 +5,7 @@ on:
 
 jobs:
   deploy:
-    # if: startsWith(github.ref_name, 'release') == false
+    if: startsWith(github.ref_name, 'release') == true
     runs-on: ubuntu-latest
     environment:
       name: ${{ github.ref_name }}
