@@ -67,7 +67,7 @@ export const submitForm = async (req: Request, res: Response) => {
   try {
     // Update session with form data using the custom function
     await updateSession(formConfig.url, formData,submissionData.transaction_id);
-    await callMockService(domain,submissionData)
+    // await callMockService(domain,submissionData)
 
     res.json({ success: true, submission_id : uuidv4() });
   } catch (error) {
