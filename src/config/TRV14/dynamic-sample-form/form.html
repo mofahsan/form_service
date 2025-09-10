@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form id="additionalDetailsForm">
+  <form id="additionalDetailsForm" method="POST" action="<%= actionUrl %>">
     <label for="passportNumber">Passport Number</label>
     <input type="text" id="passportNumber" name="passportNumber" />
     <label for="dateOfBirth">Date Of Birth</label>
@@ -17,63 +17,7 @@
     <input type="hidden" id="transactionId" name="transactionId" value="cf7bb367-c820-4bc9-9be8-f548e0bbf222">
     <input type="submit" value="Submit">
   </form>
-
-  <script>
-    // Parse URL parameters to get session data
-    const urlParams = new URLSearchParams(window.location.search);
-    const sessionData = {
-      session_id: urlParams.get('session_id'),
-      transaction_id: urlParams.get('transaction_id'),
-      flow_id: urlParams.get('flow_id')
-    };
-
-    // Get the submit URL from EJS template
-    const submitUrl = '<%= actionUrl %>';
-
-    document.getElementById('additionalDetailsForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      // Collect form data
-      const formData = new FormData(this);
-      const data = {};
-      
-      // Convert FormData to plain object
-      for (let [key, value] of formData.entries()) {
-        data[key] = value;
-      }
-      
-      // Add session data to the payload
-      const payload = {
-        ...data,
-        submissionData: JSON.stringify(sessionData)
-      };
-      
-      try {
-        // Send POST request
-        const response = await fetch(submitUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload)
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-          console.log('Form submitted successfully', result);
-          alert('Form submitted successfully! Submission ID: ' + result.submission_id);
-          // You can redirect or perform other actions here
-        } else {
-          console.error('Form submission failed', result);
-          alert('Form submission failed. Please try again.');
-        }
-      } catch (error) {
-        console.error('Error submitting form:', error);
-        alert('An error occurred while submitting the form.');
-      }
-    });
-  </script>
 </body>
 
 </html>
+

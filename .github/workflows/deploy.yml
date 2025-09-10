@@ -60,6 +60,9 @@ jobs:
           echo "REDIS_PORT=${{ vars.REDIS_PORT }}" >> \$REPO_DIR/.env
           echo "MOCK_SERVICE_URL=${{ vars.MOCK_SERVICE_URL }}" >> \$REPO_DIR/.env
           echo "BACKEND_URL=${{ vars.BACKEND_URL }}" >> \$REPO_DIR/.env
+          echo "NODE_ENV=${{ vars.NODE_ENV }}" >> \$REPO_DIR/.env
+
+          
           EOF
 
 

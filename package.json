@@ -10,15 +10,14 @@
     "test": "jest"
   },
   "dependencies": {
-    "@types/uuid": "^10.0.0",
+    "@ondc/automation-logger": "^1.1.0",
     "axios": "^1.11.0",
     "copyfiles": "^2.4.1",
     "ejs": "^3.1.10",
     "express": "^4.18.2",
     "js-yaml": "^4.1.0",
     "ondc-automation-cache-lib": "^2.1.0",
-    "typescript": "^5.7.3",
-    "uuid": "^11.1.0"
+    "typescript": "^5.7.3"
   },
   "devDependencies": {
     "@types/ejs": "^3.1.5",
